@@ -43,12 +43,12 @@ export const fetchBoard2 = async () => {
     id: "2",
     name: "나의 포트폴리오",
     state: "2025.08~2025.10",
-    gitCode: "https://github.com/kimminseoung/PortFolio",
-    gitLink: "https://kimminseoung.github.io/portfolio/",
+    gitCode: "https://github.com/hyunseok9898/my-portfolio",
+    gitLink: "https://hyunseok9898.github.io/my-portfolio/",
     category: "react",
-    img: "mongo",
+    img: "my-portfolio",
     skill: ["React", "TypeScript", "framer-motion", "styled-components", "Recoil", "react - router"],
-    text: "React로 만들어진 포트폴리오 사이트입니다. 주요 페이지는 About,Project,Board(게시판)으로 구성되어 있고 게시판 페이지는 파이어베이스를 활용하여 누구에게나 로그인을 안하고 이용 할 수 있도록 만들어봤습니다.",
+    text: "React로 만들어진 포트폴리오 사이트입니다. ",
   });
 
   await setDoc(doc(citiesRef, "3"), {
