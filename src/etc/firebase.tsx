@@ -44,7 +44,7 @@ export const fetchBoard2 = async () => {
     name: "나의 포트폴리오",
     state: "2025.08~2025.10",
     gitCode: "https://github.com/hyunseok9898/my-portfolio",
-    gitLink: "https://hyunseok9898.github.io/my-portfolio/",
+    gitLink: "https://my-portfolio-git-main-hyunseok9898s-projects.vercel.app/",
     category: "react",
     img: "my-portfolio",
     skill: ["React", "TypeScript", "framer-motion", "styled-components", "Recoil", "react - router"],
