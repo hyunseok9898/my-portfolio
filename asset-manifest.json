@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/portfolio-react/static/js/main.9bbd6f30.js",
+    "static/media/naeiltour.png": "/portfolio-react/static/media/naeiltour.479ff7b04f9bb48c1a41.png",
+    "static/media/netflix.png": "/portfolio-react/static/media/netflix.ddd4cd32252a2783ae9e.png",
+    "static/media/volkswagen.png": "/portfolio-react/static/media/volkswagen.604e45f239b805ac411a.png",
+    "static/media/react-query.png": "/portfolio-react/static/media/react-query.e19b9d0e362726ffa7de.png",
+    "static/media/구름.jpg": "/portfolio-react/static/media/구름.b481f378c75f0b03bd0a.jpg",
+    "static/media/SWR.png": "/portfolio-react/static/media/SWR.65216707f9a8fbbf1924.png",
+    "static/media/github-issue.png": "/portfolio-react/static/media/github-issue.1a331ee4e44bbeeb2634.png",
+    "static/media/styled-component.png": "/portfolio-react/static/media/styled-component.bc3e0b79498ffebf7bf8.png",
+    "static/media/Spring-Boot.jpg": "/portfolio-react/static/media/Spring-Boot.3b8be5ae65a7f756957e.jpg",
+    "static/media/recoil.jpg": "/portfolio-react/static/media/recoil.1824228068df451b0758.jpg",
+    "static/media/react.png": "/portfolio-react/static/media/react.428839d4924b447d4d50.png",
+    "static/media/MySQL.jpg": "/portfolio-react/static/media/MySQL.d0eb3711a929dd87c7c7.jpg",
+    "static/media/html.png": "/portfolio-react/static/media/html.ff3cf75e3b7cbb4ea77c.png",
+    "static/media/socket.io.png": "/portfolio-react/static/media/socket.io.d46c95a8033c63ec7e53.png",
+    "index.html": "/portfolio-react/index.html",
+    "main.9bbd6f30.js.map": "/portfolio-react/static/js/main.9bbd6f30.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.9bbd6f30.js"
+  ]
+}
