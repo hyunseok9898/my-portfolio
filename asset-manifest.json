@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.js": "/my-portfolio/static/js/main.00746556.js",
-    "static/media/naeiltour.png": "/my-portfolio/static/media/naeiltour.479ff7b04f9bb48c1a41.png",
-    "static/media/netflix.png": "/my-portfolio/static/media/netflix.ddd4cd32252a2783ae9e.png",
-    "static/media/volkswagen.png": "/my-portfolio/static/media/volkswagen.604e45f239b805ac411a.png",
-    "static/media/react-query.png": "/my-portfolio/static/media/react-query.e19b9d0e362726ffa7de.png",
-    "static/media/구름.jpg": "/my-portfolio/static/media/구름.b481f378c75f0b03bd0a.jpg",
-    "static/media/SWR.png": "/my-portfolio/static/media/SWR.65216707f9a8fbbf1924.png",
-    "static/media/github-issue.png": "/my-portfolio/static/media/github-issue.1a331ee4e44bbeeb2634.png",
-    "static/media/styled-component.png": "/my-portfolio/static/media/styled-component.bc3e0b79498ffebf7bf8.png",
-    "static/media/Spring-Boot.jpg": "/my-portfolio/static/media/Spring-Boot.3b8be5ae65a7f756957e.jpg",
-    "static/media/recoil.jpg": "/my-portfolio/static/media/recoil.1824228068df451b0758.jpg",
-    "static/media/react.png": "/my-portfolio/static/media/react.428839d4924b447d4d50.png",
-    "static/media/MySQL.jpg": "/my-portfolio/static/media/MySQL.d0eb3711a929dd87c7c7.jpg",
-    "static/media/html.png": "/my-portfolio/static/media/html.ff3cf75e3b7cbb4ea77c.png",
-    "static/media/socket.io.png": "/my-portfolio/static/media/socket.io.d46c95a8033c63ec7e53.png",
-    "index.html": "/my-portfolio/index.html",
-    "main.00746556.js.map": "/my-portfolio/static/js/main.00746556.js.map"
+    "main.js": "./static/js/main.e436e326.js",
+    "static/media/naeiltour.png": "./static/media/naeiltour.479ff7b04f9bb48c1a41.png",
+    "static/media/netflix.png": "./static/media/netflix.ddd4cd32252a2783ae9e.png",
+    "static/media/volkswagen.png": "./static/media/volkswagen.604e45f239b805ac411a.png",
+    "static/media/my-portfolio.png": "./static/media/my-portfolio.e5dac462508ac41b65cf.png",
+    "static/media/react-query.png": "./static/media/react-query.e19b9d0e362726ffa7de.png",
+    "static/media/구름.jpg": "./static/media/구름.b481f378c75f0b03bd0a.jpg",
+    "static/media/SWR.png": "./static/media/SWR.65216707f9a8fbbf1924.png",
+    "static/media/github-issue.png": "./static/media/github-issue.1a331ee4e44bbeeb2634.png",
+    "static/media/styled-component.png": "./static/media/styled-component.bc3e0b79498ffebf7bf8.png",
+    "static/media/Spring-Boot.jpg": "./static/media/Spring-Boot.3b8be5ae65a7f756957e.jpg",
+    "static/media/recoil.jpg": "./static/media/recoil.1824228068df451b0758.jpg",
+    "static/media/react.png": "./static/media/react.428839d4924b447d4d50.png",
+    "static/media/MySQL.jpg": "./static/media/MySQL.d0eb3711a929dd87c7c7.jpg",
+    "static/media/html.png": "./static/media/html.ff3cf75e3b7cbb4ea77c.png",
+    "static/media/socket.io.png": "./static/media/socket.io.d46c95a8033c63ec7e53.png",
+    "index.html": "./index.html",
+    "main.e436e326.js.map": "./static/js/main.e436e326.js.map"
   },
   "entrypoints": [
-    "static/js/main.00746556.js"
+    "static/js/main.e436e326.js"
   ]
 }
