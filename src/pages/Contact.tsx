@@ -32,7 +32,7 @@ const Contact = () => {
           <TitleForm titleName='- mail'/>
           <div className="text">
             <ul style={{ listStyle: "circle", paddingLeft:"20px"}}>
-              <li>tlgjawl153@gmail.com</li>
+              <li>tlgjawl0130@naver.com</li>
             </ul>
           </div>
         </ContactMe>
