@@ -53,14 +53,14 @@ export const fetchBoard2 = async () => {
 
   await setDoc(doc(citiesRef, "3"), {
     id: "3",
-    name: "코인정보 사이트",
-    state: "2022.06",
-    gitCode: "https://github.com/kimminseoung/World-ALL-Coin",
-    gitLink: "https://kimminseoung.github.io/World-ALL-Coin/",
+    name: "예비집사 판별기",
+    state: "2025.11",
+    gitCode: "https://github.com/hyunseok9898/mbtitest_ts",
+    gitLink: "https://mbtitest-ts-one.vercel.app/",
     category: "react",
-    img: "react",
-    skill: ["React", "TypeScript", "framer-motion", "styled-components", "Recoil", "react - router"],
-    text: "React와 코인파프리카 API를 활용하여 만든 코인사이트 입니다. 타입스크립트와 상태관리 라이브러리 Recoil를 활용한 다크모드, 코인파프리카 API를 활용하여 만든 Chart가 있습니다.",
+    img: "mbti_ts",
+    skill: ["React", "TypeScript", "Kakao-api","styled-components", "react - router","react-bootstrap",],
+    text: "React와 TypeScript로 만들어진 mbti별 집사 판별 사이트입니다. 결과 페이지에서 공유하기 버튼을 눌러 카카오톡으로 공유할 수 있습니다.",
   });
   await setDoc(doc(citiesRef, "4"), {
     id: "4",
@@ -97,5 +97,3 @@ export const fetchBoard2 = async () => {
     text: "",
   });
 };
-
-fetchBoard2();
