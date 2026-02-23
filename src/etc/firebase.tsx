@@ -92,7 +92,7 @@ export const fetchBoard2 = async () => {
     gitCode: "https://github.com/kimminseoung/Card-matching-Game",
     gitLink: "https://kimminseoung.github.io/Card-matching-Game",
     category: "js",
-    img: "fb",
+    img: "volkswagen",
     skill: ["HTML", "CSS", "JavaScript"],
     text: "",
   });
