@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getDocs, getFirestore, collection, setDoc, doc } from "firebase/firestore";
+import {
+  getDocs,
+  getFirestore,
+  collection,
+  setDoc,
+  doc,
+} from "firebase/firestore";
 import { DocumentData } from "firebase/firestore/lite";
 
 // ✅ 환경 변수로부터 Firebase 설정값 가져오기
@@ -16,7 +22,6 @@ const firebaseConfig = {
 // ✅ Firebase 앱 초기화 및 Firestore 참조 생성
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-
 
 // 🔹 프로젝트 목록 읽어오기
 export const fetchProject = async (): Promise<DocumentData> => {
@@ -35,7 +40,7 @@ export const fetchBoard2 = async () => {
     gitLink: "https://github-issue-dun.vercel.app/",
     category: "react",
     img: "github-issue",
-    skill: ["React","react-query","react - router", "api", "axios"],
+    skill: ["React", "react-query", "react - router", "api", "axios"],
     text: "React를 활용한 깃 허브 이슈페이지입니다. New Issue 버튼을 통해 새로운 Isuue생성이 가능합니다.",
   });
 
@@ -47,7 +52,14 @@ export const fetchBoard2 = async () => {
     gitLink: "https://my-portfolio-kappa-beryl-24.vercel.app/",
     category: "react",
     img: "my-portfolio",
-    skill: ["React", "TypeScript", "framer-motion", "styled-components", "Recoil", "react - router"],
+    skill: [
+      "React",
+      "TypeScript",
+      "framer-motion",
+      "styled-components",
+      "Recoil",
+      "react - router",
+    ],
     text: "React로 만들어진 포트폴리오 사이트입니다. ",
   });
 
@@ -59,7 +71,14 @@ export const fetchBoard2 = async () => {
     gitLink: "https://mbtitest-ts-one.vercel.app/",
     category: "react",
     img: "mbti_ts",
-    skill: ["React", "TypeScript", "Kakao-api","styled-components", "react - router","react-bootstrap",],
+    skill: [
+      "React",
+      "TypeScript",
+      "Kakao-api",
+      "styled-components",
+      "react - router",
+      "react-bootstrap",
+    ],
     text: "React와 TypeScript로 만들어진 mbti별 집사 판별 사이트입니다. 결과 페이지에서 공유하기 버튼을 눌러 카카오톡으로 공유할 수 있습니다.",
   });
   await setDoc(doc(citiesRef, "4"), {
