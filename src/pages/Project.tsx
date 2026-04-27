@@ -2,11 +2,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import TitleForm from "../components/Title";
 import { useEffect, useState } from "react";
-import { fetchProject } from "../etc/firebase";
+import { getProjects } from "../firebase/projects";
 import { DocumentData } from "firebase/firestore";
 import { useSetRecoilState } from "recoil";
 import { ModalText } from "../etc/atom";
 import { Loading } from "../components/Loading";
+import { Project } from "../firebase/types";
 
 const Container = styled.section`
   padding: 5.75rem 3.25rem 0;
@@ -22,7 +23,7 @@ const Container = styled.section`
       margin-right: 10px;
       font-weight: 600;
       cursor: pointer;
-      font-family: 'Open Sans', sans-serif;
+      font-family: "Open Sans", sans-serif;
     }
   }
   @media ${(props) => props.theme.mobile} {
@@ -112,16 +113,11 @@ export interface ProjectProps {
 
 const Projects = () => {
   const setId = useSetRecoilState(ModalText);
-  const [DB, setDB] = useState<ProjectProps[]>([]);
+  const [DB, setDB] = useState<Project[]>([]);
   const [category, setCategory] = useState("All");
 
   useEffect(() => {
-    fetchProject().then((data) => {
-      const context = data.docs.map((doc: DocumentData) => ({
-        ...doc.data(),
-      }));
-      setDB(context);
-    });
+    getProjects().then(setDB);
   }, []);
 
   const onClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -132,7 +128,9 @@ const Projects = () => {
   const filteredProjects =
     category === "All"
       ? DB
-      : DB.filter((item) => item.category.toLowerCase() === category.toLowerCase());
+      : DB.filter(
+          (item) => item.category.toLowerCase() === category.toLowerCase(),
+        );
 
   return (
     <Container>
@@ -141,6 +139,7 @@ const Projects = () => {
         <button onClick={onClick}>All</button>
         <button onClick={onClick}>JS</button>
         <button onClick={onClick}>REACT</button>
+        <button onClick={onClick}>NEXT</button>
       </div>
 
       {DB.length > 0 ? (
@@ -159,7 +158,7 @@ const Projects = () => {
               >
                 <img
                   className="imgBox"
-                  src={require(`../img/${element.img}.png`)}
+                  src={`/img/${element.img}.png`}
                   alt={element.img}
                 />
                 <h3 className="title">{element.name}</h3>

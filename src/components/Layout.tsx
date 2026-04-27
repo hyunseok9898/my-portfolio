@@ -47,7 +47,7 @@ function Layout() {
     <Container>
       <div>
         <Picture>
-          <img src={require("../img/하늘.jpg")} alt="gureum" />
+          <img src={"/img/하늘.jpg"} alt="gureum" />
         </Picture>
         <Contents>
           <Outlet />

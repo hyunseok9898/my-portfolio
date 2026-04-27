@@ -98,16 +98,16 @@ const About = () => {
               <Subheading>- Language</Subheading>
               <TechList style={{ gridTemplateColumns: "repeat(4, 100px)" }}>
                 <TechImage>
-                  <img src={require("../img/html.png")} alt="" />
+                  <img src={"/img/html.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/css.png")} alt="" />
+                  <img src={"/img/css.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/js.png")} alt="" />
+                  <img src={"/img/js.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/typescript.png")} alt="" />
+                  <img src={"/img/typescript.png"} alt="" />
                 </TechImage>
               </TechList>
             </div>
@@ -115,31 +115,31 @@ const About = () => {
               <Subheading>- FrontEnd</Subheading>
               <TechList>
                 <TechImage>
-                  <img src={require("../img/react.png")} alt="" />
+                  <img src={"/img/react.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/axios.png")} alt="" />
+                  <img src={"/img/axios.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/nextjs.png")} alt="" />
+                  <img src={"/img/nextjs.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/SWR.png")} alt="" />
+                  <img src={"/img/SWR.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/recoil.jpg")} alt="" />
+                  <img src={"/img/recoil.jpg"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/socket.io.png")} alt="" />
+                  <img src={"/img/socket.io.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/react-query.png")} alt="" />
+                  <img src={"/img/react-query.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/framer-motion.png")} alt="" />
+                  <img src={"/img/framer-motion.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/styled-component.png")} alt="" />
+                  <img src={"/img/styled-component.png"} alt="" />
                 </TechImage>
               </TechList>
             </div>
@@ -147,7 +147,7 @@ const About = () => {
               <Subheading>- BackEnd</Subheading>
               <TechList>
                 <TechImage>
-                  <img src={require("../img/Spring-Boot.jpg")} alt="" />
+                  <img src={"/img/Spring-Boot.jpg"} alt="" />
                 </TechImage>
               </TechList>
             </div>
@@ -155,13 +155,13 @@ const About = () => {
               <Subheading>- DataBase</Subheading>
               <TechList>
                 <TechImage>
-                  <img src={require("../img/supabase.jpg")} alt="" />
+                  <img src={"/img/supabase.jpg"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/fb.png")} alt="" />
+                  <img src={"/img/fb.png"} alt="" />
                 </TechImage>
                 <TechImage>
-                  <img src={require("../img/MySQL.jpg")} alt="" />
+                  <img src={"/img/MySQL.jpg"} alt="" />
                 </TechImage>
               </TechList>
             </div>
@@ -169,7 +169,7 @@ const About = () => {
               <Subheading>- ETC</Subheading>
               <TechList>
                 <TechImage>
-                  <img src={require("../img/github.png")} alt="" />
+                  <img src={"/img/github.png"} alt="" />
                 </TechImage>
               </TechList>
             </div>

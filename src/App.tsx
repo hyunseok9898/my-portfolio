@@ -7,6 +7,7 @@ import { DarkTheme, LightTheme } from "./etc/theme";
 import Footer from "./components/Footer";
 import DarkMode from "./components/DarkMode";
 import Modal from "./components/Modal";
+import { seedProjects } from "./firebase/seed";
 
 // 🔹 전역 스타일 (reset + theme 연동)
 const GlobalStyle = createGlobalStyle<{ bodyOverflow: boolean }>`
@@ -36,24 +37,24 @@ footer, header, hgroup, menu, nav, section {
 }
 html {
 	
-	@media ${props => props.theme.desktop}{
+	@media ${(props) => props.theme.desktop}{
 		font-size: 16px;
   }
-  @media ${props => props.theme.mobile}{
+  @media ${(props) => props.theme.mobile}{
 		font-size: 14px;
   }
 }
 body {
 	line-height: 1;
-	@media ${props => props.theme.desktop}{
+	@media ${(props) => props.theme.desktop}{
 		padding:0 70px;
   }
-  @media ${props => props.theme.mobile}{
+  @media ${(props) => props.theme.mobile}{
 		padding: 0;
-		height:  ${props => (props.bodyOverflow ? "100%" : "initial")};
-		overflow: ${props => (props.bodyOverflow ? "hidden" : "visible")};
+		height:  ${(props) => (props.bodyOverflow ? "100%" : "initial")};
+		overflow: ${(props) => (props.bodyOverflow ? "hidden" : "visible")};
   }
-	background-color: ${props => props.theme.bgColor};
+	background-color: ${(props) => props.theme.bgColor};
 	font-family: 'Open Sans', sans-serif;
 }
 ol, ul {
@@ -86,6 +87,7 @@ a {
 `;
 
 function App() {
+  seedProjects();
   const isDarkMode = useRecoilValue<boolean>(DarkModeValue);
   const openMobile = useRecoilValue<boolean>(OpenMobileMenu);
 
@@ -93,10 +95,10 @@ function App() {
     <ThemeProvider theme={isDarkMode ? DarkTheme : LightTheme}>
       <Router />
       <Header />
-			<Modal />
-      <GlobalStyle bodyOverflow={openMobile}/>
-			<DarkMode />
-			<Footer />
+      <Modal />
+      <GlobalStyle bodyOverflow={openMobile} />
+      <DarkMode />
+      <Footer />
     </ThemeProvider>
   );
 }

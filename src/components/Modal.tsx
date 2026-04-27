@@ -2,12 +2,16 @@ import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { motion, AnimatePresence } from "framer-motion";
 import { ModalText } from "../etc/atom";
-import { DocumentData } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { ProjectProps } from "../pages/Project";
-import { fetchProject } from "../etc/firebase";
+import { getProjects } from "../firebase/projects";
 import { AiOutlineCloseSquare } from "react-icons/ai";
-import { BsFillDice1Fill, BsFillDice2Fill, BsFillDice3Fill, BsFillDice4Fill } from "react-icons/bs";
+import {
+  BsFillDice1Fill,
+  BsFillDice2Fill,
+  BsFillDice3Fill,
+  BsFillDice4Fill,
+} from "react-icons/bs";
+import { Project } from "../firebase/types";
 
 const Overlay = styled(motion.div)`
   position: absolute;
@@ -23,7 +27,7 @@ const Close = styled.div`
   cursor: pointer;
   top: -6px;
   right: -63px;
-  color: ${props => props.theme.bgColor};
+  color: ${(props) => props.theme.bgColor};
   font-size: 3.375rem;
   transition: 0.3s;
   cursor: pointer;
@@ -34,7 +38,7 @@ const Container = styled(motion.div)`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 11111;
-  @media ${props => props.theme.mobile} {
+  @media ${(props) => props.theme.mobile} {
     padding: 0;
   }
 `;
@@ -42,9 +46,11 @@ const Contents = styled(motion.div)`
   position: relative;
   width: 800px;
   overflow-y: scroll;
-  background-color: ${props => props.theme.bgColor};
-  color: ${props => props.theme.textColor};
-  box-shadow: 0 2px 3px rgba(255, 255, 255, 0.1), 0 10px 20px rgba(255, 255, 255, 0.06);
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
+  box-shadow:
+    0 2px 3px rgba(255, 255, 255, 0.1),
+    0 10px 20px rgba(255, 255, 255, 0.06);
   display: block;
   padding: 1.25rem;
   & > div {
@@ -53,7 +59,7 @@ const Contents = styled(motion.div)`
       vertical-align: middle;
       padding-right: 3px;
       svg {
-        color: ${props => props.theme.textColor};
+        color: ${(props) => props.theme.textColor};
         font-size: 1rem;
       }
     }
@@ -88,6 +94,7 @@ const Contents = styled(motion.div)`
   .description {
     line-height: 1.6rem;
     padding-left: 1rem;
+    white-space: pre-line;
   }
   .skillList {
     display: grid;
@@ -95,7 +102,7 @@ const Contents = styled(motion.div)`
     gap: 5px;
     margin-top: 10px;
   }
-  @media ${props => props.theme.mobile} {
+  @media ${(props) => props.theme.mobile} {
     width: 100%;
     height: 100%;
     padding: 6px;
@@ -123,14 +130,11 @@ const modalBackGround = {
 
 function Modal() {
   const [id, setId] = useRecoilState(ModalText);
-  const [DB, setDB] = useState<ProjectProps[]>([]);
+  const [DB, setDB] = useState<Project[]>([]);
 
   useEffect(() => {
-    fetchProject().then(data => {
-      const context = data.docs.map((doc: DocumentData) => ({
-        ...doc.data(),
-      }));
-      setDB(context);
+    getProjects().then((projects) => {
+      setDB(projects);
     });
   }, []);
 
@@ -143,46 +147,65 @@ function Modal() {
           <Overlay
             onClick={hidden}
             variants={modalBackGround}
-            initial='init'
-            animate='start'
-            exit='end'
+            initial="init"
+            animate="start"
+            exit="end"
           />
-          <Container variants={modalBackGround} initial='init' animate='start' exit='end'>
-            {DB.filter(ele => ele.id === id).map(ele => (
+          <Container
+            variants={modalBackGround}
+            initial="init"
+            animate="start"
+            exit="end"
+          >
+            {DB.filter((ele) => ele.id === id).map((ele) => (
               <Contents key={ele.id} layoutId={id}>
-                <div className='image'>
-                  <img src={require(`../img/${ele.img}.png`)} alt={ele.img} />
+                <div className="image">
+                  <img src={`/img/${ele.img}.png`} alt={ele.img} />
                 </div>
-                <div className='text'>
+                <div className="text">
                   <h3>{ele.name}</h3>
                   <div>
-                    <h5 className='subtitle'>
-                      <b><BsFillDice1Fill /></b>Description
+                    <h5 className="subtitle">
+                      <b>
+                        <BsFillDice1Fill />
+                      </b>
+                      Description
                     </h5>
-                    <p className='description'>{ele.text}</p>
+                    <p className="description">{ele.text}</p>
                   </div>
                   <div>
-                    <h5 className='subtitle'>
-                      <b><BsFillDice2Fill /></b>Use Skill
+                    <h5 className="subtitle">
+                      <b>
+                        <BsFillDice2Fill />
+                      </b>
+                      Use Skill
                     </h5>
-                    <ul className='skillList'>
+                    <ul className="skillList">
                       {ele.skill.map((s, i) => (
                         <li key={i}>- {s}</li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <b><BsFillDice3Fill /></b>Site
+                    <b>
+                      <BsFillDice3Fill />
+                    </b>
+                    Site
                     <a href={ele.gitLink}>{ele.gitLink}</a>
                   </div>
                   <div>
-                    <b><BsFillDice4Fill /></b>GitHub
+                    <b>
+                      <BsFillDice4Fill />
+                    </b>
+                    GitHub
                     <a href={ele.gitCode}>{ele.gitCode}</a>
                   </div>
                 </div>
               </Contents>
             ))}
-            <Close onClick={hidden}><AiOutlineCloseSquare /></Close>
+            <Close onClick={hidden}>
+              <AiOutlineCloseSquare />
+            </Close>
           </Container>
         </>
       )}
