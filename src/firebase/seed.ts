@@ -15,7 +15,7 @@ export const seedProjects = async () => {
       gitCode: "https://github.com/hyunseok9898/",
       gitLink: "https://onbite-cinema-app-router.vercel.app/",
       category: "next",
-      img: "reco-movie",
+      img: "hyunseok-log",
       skill: ["Next", "React", "TypeScript", "Supabase", "api"],
       text: "Next 활용한 영화 추천&검색 사이트 입니다",
     },

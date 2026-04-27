@@ -3,7 +3,6 @@ import styled from "styled-components";
 import TitleForm from "../components/Title";
 import { useEffect, useState } from "react";
 import { getProjects } from "../firebase/projects";
-import { DocumentData } from "firebase/firestore";
 import { useSetRecoilState } from "recoil";
 import { ModalText } from "../etc/atom";
 import { Loading } from "../components/Loading";
