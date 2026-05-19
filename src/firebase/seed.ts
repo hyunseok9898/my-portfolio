@@ -74,6 +74,17 @@ export const seedProjects = async () => {
     },
     {
       id: "5",
+      name: "현석링크",
+      state: "2026.02",
+      gitCode: "https://github.com/hyunseok9898/onebite-link",
+      gitLink: "https://onebite-link-mu.vercel.app",
+      category: "next",
+      img: "hyunseok_link",
+      skill: ["Next", "TypeScript", "Kakao-api", "Supabase", "Tailwind CSS"],
+      text: "Next와 TypeScript로 만들어진 링크 저장소입니다. \n 로그인시 테스트 아이디 : test@email.com \n 비밀번호 : 123456",
+    },
+    {
+      id: "6",
       name: "todolist",
       state: "2025.02",
       gitCode: "https://github.com/hyunseok9898/todolist",
@@ -84,7 +95,7 @@ export const seedProjects = async () => {
       text: "React와 TypeScript로 만들어진 todolist입니다.",
     },
     {
-      id: "6",
+      id: "7",
       name: "폭스바겐_리뉴얼",
       state: "2023.06~2023.08",
       gitCode: "https://github.com/hyunseok9898/VolksWagen_Renewal",
@@ -95,7 +106,7 @@ export const seedProjects = async () => {
       text: "폭스바겐코리아 웹사이트 리뉴얼 팀 프로젝트입니다. 카카오api를 사용하여 지도에 서비스센터 찾기가 가능합니다. 서브페이지는 전기차 충전, 서비스센터 찾기 2개 있습니다. 이 웹은 반응형입니다. ",
     },
     {
-      id: "7",
+      id: "8",
       name: "내일투어_리뉴얼",
       state: "2023.04",
       gitCode: "https://github.com/hyunseok9898/naeiltour-renewal",
