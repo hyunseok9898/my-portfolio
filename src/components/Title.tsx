@@ -2,47 +2,56 @@ import { useRecoilValue } from "recoil";
 import { DarkModeValue } from "../etc/atom";
 import { styled } from "styled-components";
 
-const TitleText = styled.div<{ isDark: boolean }>`
+const TitleText = styled.div`
   overflow: hidden;
-  margin-bottom: 0.938rem;
+  margin-bottom: 1.25rem;
+
   span {
     display: inline-block;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.6rem;
     position: relative;
-    letter-spacing: 7px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    font-weight: 700;
-    font-size: 18px;
-    color: ${props => (props.isDark ? "#fff" : "#333")};
+    color: ${(props) => props.theme.textColor};
+
     &::after {
       content: "";
-      margin-left: 1.563rem;
       position: absolute;
-      width: 5000px;
-      height: 1px;
-      background-color: ${props => (props.isDark ? "#fff" : "#7d7789")};
-      left: 100%;
-      top: 50%;
-      transform: translateY(-50%);
+      bottom: 0;
+      left: 0;
+      width: 1.75rem;
+      height: 1.5px;
+      background-color: ${(props) => props.theme.accent};
+      transition: width 0.3s ease;
     }
   }
-  @media ${props => props.theme.mobile} {
+
+  &:hover span::after {
+    width: 100%;
+  }
+
+  @media ${(props) => props.theme.mobile} {
     span {
-      letter-spacing: 2px;
+      letter-spacing: 0.12em;
     }
   }
 `;
+
 interface titleText {
   titleName: string;
 }
 
 function TitleForm(props: titleText) {
-  const isDark = useRecoilValue(DarkModeValue);
+  useRecoilValue(DarkModeValue);
 
   return (
-    <TitleText isDark={isDark}>
+    <TitleText>
       <span>{props.titleName}</span>
     </TitleText>
   );
 }
+
 export default TitleForm;

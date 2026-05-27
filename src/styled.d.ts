@@ -5,6 +5,10 @@ declare module "styled-components" {
     bgColor: string;
     textColor: string;
     layout: string;
+    accent: string;
+    accentLight: string;
+    subtle: string;
+    border: string;
     desktop: string;
     mobile: string;
     tablet: string;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaGithubSquare } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi";
 import { OpenMobileMenu } from "../etc/atom";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -7,110 +7,139 @@ import { useRecoilState } from "recoil";
 interface OpenMenu {
   open: boolean;
 }
+
 const Wrapper = styled.div<OpenMenu>`
   position: relative;
 `;
+
 const Menu = styled.div<OpenMenu>`
-  @media ${props => props.theme.desktop} {
+  @media ${(props) => props.theme.desktop} {
     display: none;
   }
-  @media ${props => props.theme.mobile} {
+
+  @media ${(props) => props.theme.mobile} {
     display: block;
     position: fixed;
-    transition: 0.5s ease-in-out;
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
     top: 0;
+    right: 0;
     height: 100%;
     z-index: 998;
-    color: ${props => props.theme.textColor};
-    background-color: ${props => props.theme.bgColor};
-    opacity: ${props => (props.open ? "1" : "0")};
-    right: ${props => (props.open ? "0" : "-50%")};
-    width: ${props => (props.open ? "50%" : "0")};
-    padding: 3.125rem 1.25rem;
+    width: 280px;
+    background-color: ${(props) => props.theme.bgColor};
+    border-left: 1px solid ${(props) => props.theme.border};
+    transform: translateX(${(props) => (props.open ? "0" : "100%")});
+    padding: 5rem 2rem 2rem;
+    opacity: ${(props) => (props.open ? "1" : "0")};
+
     .menuList {
-      margin-top: 10rem;
-      li {
-        text-align: right;
-        margin-bottom: 1.25rem;
-        
-        a{
-        position: relative;
-            &::before {
-          content: "";
-          width: 100%;
-          height: 1px;
-          background-color: ${props => props.theme.textColor};
-          position: absolute;
-          top: 20px;
-          transform: scaleX(0);
-          transition: all 0.3s;
-        }
-        &:hover::before {
-          transform: scaleX(1);
-        }
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      li a {
+        display: block;
+        padding: 0.75rem 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: ${(props) => props.theme.subtle};
+        border-bottom: 1px solid ${(props) => props.theme.border};
+        transition: color 0.25s ease;
+
+        &:hover {
+          color: ${(props) => props.theme.accent};
         }
       }
     }
+
     .etc {
       margin-top: 2.5rem;
-      .githublogo {
-        margin-bottom: 0.313rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .social {
+        display: flex;
+        gap: 0.75rem;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          border: 1px solid ${(props) => props.theme.border};
+          color: ${(props) => props.theme.subtle};
+          font-size: 0.875rem;
+          transition: all 0.25s ease;
+
+          &:hover {
+            border-color: ${(props) => props.theme.accent};
+            color: ${(props) => props.theme.accent};
+          }
+        }
       }
+
       .copyright {
-        font-size: 1rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
+        color: ${(props) => props.theme.subtle};
       }
     }
   }
 `;
+
 const Overlay = styled.div<OpenMenu>`
-  @media ${props => props.theme.desktop} {
-    opacity: 0;
-    visibility: hidden;
+  @media ${(props) => props.theme.desktop} {
+    display: none;
   }
-  @media ${props => props.theme.mobile} {
-    transition: 0.5s ease-in-out;
+
+  @media ${(props) => props.theme.mobile} {
+    transition: all 0.45s ease;
     width: 100%;
-    visibility: ${props => (props.open ? "visible" : "hidden")};
-    opacity: ${props => (props.open ? "1" : "0")};
-    z-index: ${props => (props.open ? "997" : "0")};
+    visibility: ${(props) => (props.open ? "visible" : "hidden")};
+    opacity: ${(props) => (props.open ? "1" : "0")};
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 997;
   }
 `;
+
 function SideMenu() {
   const [open, setOpen] = useRecoilState(OpenMobileMenu);
 
   return (
     <Wrapper open={open}>
-      <Overlay open={open} onClick={() => setOpen(prev => !prev)} />
+      <Overlay open={open} onClick={() => setOpen((prev) => !prev)} />
       <Menu open={open}>
-        <ul className='menuList'>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/About'>About</Link>
-          </li>
-          <li>
-            <Link to='/Project'>Project</Link>
-          </li>
-          <li>
-            <Link to='/Contact'>Contact</Link>
-          </li>
+        <ul className="menuList">
+          <li><Link to="/" onClick={() => setOpen(false)}>Home</Link></li>
+          <li><Link to="/About" onClick={() => setOpen(false)}>About</Link></li>
+          <li><Link to="/Project" onClick={() => setOpen(false)}>Project</Link></li>
+          <li><Link to="/Contact" onClick={() => setOpen(false)}>Contact</Link></li>
         </ul>
-        <div className='etc'>
-          <div className='githublogo'>
-            <a href='https://github.com/hyunseok9898'>
-              <FaGithubSquare />
+        <div className="etc">
+          <div className="social">
+            <a
+              href="https://github.com/hyunseok9898"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiGithub />
             </a>
           </div>
-          <div className='copyright'>Copyright © 2025</div>
+          <div className="copyright">© 2025 Hong HyunSeok</div>
         </div>
       </Menu>
     </Wrapper>
   );
 }
+
 export default SideMenu;

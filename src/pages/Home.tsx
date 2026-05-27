@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useRef} from "react";
 import { Link } from "react-router-dom";
-import { useInterval } from "../hooks/setInterVal";
 
 const HomeContainer = styled.section`
   position: relative;
@@ -10,158 +8,208 @@ const HomeContainer = styled.section`
   height: 100%;
   display: flex;
   align-items: center;
-`
+`;
 
 const Wrapper = styled(motion.div)`
-  padding-left: 6.25rem;
-  @media ${props => props.theme.mobile} {
-    padding-left: 1rem;
+  padding-left: 5rem;
+  padding-right: 3rem;
+
+  @media ${(props) => props.theme.mobile} {
+    padding: 0 1.5rem;
   }
-  .name {
-      font-size: 4.1rem;
-      font-weight: 800;
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background-color: ${(props) => props.theme.accent};
+    }
+
+    span {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 1.875rem;
-      color: ${props => props.theme.textColor};
+      color: ${(props) => props.theme.accent};
+    }
   }
-  .line {
-      display: inline-block;
-      width: 4.375rem;
-      height: 0.313rem;
-      background-color: ${props => props.theme.textColor};
-      margin-bottom: 1.875rem;
+
+  .name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: ${(props) => props.theme.textColor};
+    margin-bottom: 1.5rem;
+
+    .first {
+      display: block;
+      font-weight: 300;
+      color: ${(props) => props.theme.subtle};
+      font-size: 0.6em;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.2rem;
+    }
   }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 3rem;
+      height: 1px;
+      background-color: ${(props) => props.theme.accent};
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      flex: 1;
+      height: 1px;
+      background-color: ${(props) => props.theme.border};
+    }
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: ${(props) => props.theme.subtle};
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+  }
+
   .button {
-    width: 100%;
+    margin-top: 2.5rem;
+
     & > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
       text-decoration: none;
-      color: ${props => props.theme.bgColor};
-      display: inline-block;
-      background-color: ${props => props.theme.textColor};
-      padding: 1.75rem 2.375rem;
-      line-height: 0.375;
-      text-transform: none;
+      color: ${(props) => props.theme.bgColor};
+      background-color: ${(props) => props.theme.textColor};
+      padding: 0.95rem 2rem;
+      font-size: 0.8125rem;
       font-weight: 600;
-      text-transform: capitalize;
-      letter-spacing: 0.063rem;
-      border: 2px solid ${props => props.theme.textColor};
-      transition: all 0.3s ease;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid ${(props) => props.theme.textColor};
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: ${(props) => props.theme.accent};
+        transform: translateX(-100%);
+        transition: transform 0.35s ease;
+        z-index: 0;
+      }
+
+      span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .arrow {
+        position: relative;
+        z-index: 1;
+        width: 1.25rem;
+        height: 1px;
+        background-color: currentColor;
+        transition: width 0.3s ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: -3px;
+          width: 7px;
+          height: 7px;
+          border-top: 1px solid currentColor;
+          border-right: 1px solid currentColor;
+          transform: rotate(45deg);
+        }
+      }
+
       &:hover {
-        color: ${props => props.theme.textColor};
-        background-color: ${props => props.theme.bgColor};
+        border-color: ${(props) => props.theme.accent};
+        color: #fff;
+
+        &::before {
+          transform: translateX(0);
+        }
+
+        .arrow {
+          width: 1.75rem;
+        }
       }
     }
   }
-`
-const Animation = styled(motion.h3)`
- font-size: 1.563rem;
- margin-bottom: 2.188rem;
- line-height: 1.875rem;
- font-weight: 400;
- color: ${props => props.theme.textColor};
- display: flex;
- .textanibox {
-    margin-left: 0.5rem;
-    position: relative;
-    transform-origin: 50% 100%;
-    & > div {
-      position: absolute;
-      width: 100%;
-      bottom: -1.563rem;
-      color: ${props => props.theme.textColor};
-      transition: 0.5s;
-      font-weight: bold;
-      &.isActive {
-        opacity: 1;
-        bottom: 0px;
-        visibility: visible;
-        transform: rotateX(0deg);
-      }
-      &.isHidden {
-        visibility: hidden;
-        opacity: 0;
-        transform: rotateX(-180deg);
-      }
-    }
- }
-`
+`;
 
 export const showHide = {
   start: {
     opacity: 0,
-    transition: {
-      duration: 0,
-      staggerChildren: 0.5,
-    },
+    transition: { duration: 0, staggerChildren: 0.15 },
   },
   end: {
     opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.5,
-    },
+    transition: { duration: 0.6, staggerChildren: 0.15 },
   },
 };
+
 export const showHideChild = {
-  start: {
-    y: -100,
-    opacity: 0,
-  },
+  start: { y: 30, opacity: 0 },
   end: {
     y: 0,
     opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
+    },
   },
 };
 
 const Home = () => {
-  const divtag = useRef<HTMLDivElement>(null);
-  const arrIndex = useRef(0);
-  const WORD_TYPING_SPEED = 2000;
-  const onChangeMsg = () => {
-    if (divtag.current) {
-      if (arrIndex.current === 0) {
-        divtag?.current.children[0].classList.replace("isHidden", "isActive");
-        divtag?.current.children[1].classList.replace("isActive", "isHidden");
-        divtag?.current.children[2].classList.replace("isActive", "isHidden");
-      } else if (arrIndex.current === 1) {
-        divtag?.current.children[0].classList.replace("isActive", "isHidden");
-        divtag?.current.children[1].classList.replace("isHidden", "isActive");
-        divtag?.current.children[2].classList.replace("isHidden", "isHidden");
-      } else if (arrIndex.current === 2) {
-        divtag?.current.children[0].classList.replace("isActive", "isHidden");
-        divtag?.current.children[1].classList.replace("isActive", "isHidden");
-        divtag?.current.children[2].classList.replace("isHidden", "isActive");
-      }
-      arrIndex.current++;
-      if (arrIndex.current === 3) {
-        arrIndex.current = 0;
-      }
-    }
-  }
-
-  useInterval(() => {
-    onChangeMsg()
-  }, [WORD_TYPING_SPEED])
-  const msgArr = ["Developer", "Learner", "Communicator" ];
   return (
-     <HomeContainer>
-      <Wrapper variants={showHide} initial='start' animate='end'>
-        <motion.h3 variants={showHideChild} className='name'>
-          Hong HyunSeok
-        </motion.h3>
-        <motion.span className='line' />
-         <Animation variants={showHideChild}>
-          Creative
-          <div className='textanibox' ref={divtag}>
-            {msgArr.map((m, i) => (
-              <div className='isHidden' key={i}>
-                {m}
-              </div>
-            ))}
-          </div>
-        </Animation>
-        <motion.div variants={showHideChild} className='button'>
-          <Link to='project'>go project</Link>
+    <HomeContainer>
+      <Wrapper variants={showHide} initial="start" animate="end">
+        <motion.div variants={showHideChild} className="eyebrow">
+          <span>Frontend Portfolio</span>
+        </motion.div>
+
+        <motion.h1 variants={showHideChild} className="name">
+          <span className="first">Hong</span>
+          HyunSeok
+        </motion.h1>
+
+        <motion.div variants={showHideChild} className="divider" />
+
+        <motion.p variants={showHideChild} className="subtitle">
+          함께 배우고 성장하는 프론트엔드 개발자입니다.
+        </motion.p>
+
+        <motion.div variants={showHideChild} className="button">
+          <Link to="project">
+            <span>View Projects</span>
+            <div className="arrow" />
+          </Link>
         </motion.div>
       </Wrapper>
     </HomeContainer>
