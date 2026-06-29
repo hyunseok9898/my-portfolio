@@ -10,6 +10,17 @@ export const seedProjects = async () => {
   const data: Project[] = [
     {
       id: "1",
+      name: "Inflearn clone",
+      state: "2026.04~2026.07",
+      gitCode: "https://github.com/hyunseok9898/inflearn-fullstack-clone",
+      gitLink: "http://hhs98.site/",
+      category: "next",
+      img: "inflearn-clone",
+      skill: ["Next", "NestJs", "AWS", "Prisma", "TypeScript", "api"],
+      text: "NextJs 와 NestJs를 활용한 풀스택 인프런 클론 사이트 입니다. AWS를 통해 배포 하였습니다. \n 로그인 시 관리자 계정 아이디 : test@test.com  비밀번호 : 123456 \n 일반 학습자 로그인 아이디 : test01@test.com  비밀번호 : 123456 \n 실제 회원가입과 결제 서비스 가능합니다.",
+    },
+    {
+      id: "2",
       name: "RECO CINEMA",
       state: "2026.04",
       gitCode: "https://github.com/hyunseok9898/",
@@ -20,7 +31,7 @@ export const seedProjects = async () => {
       text: "Next 활용한 영화 추천&검색 사이트 입니다",
     },
     {
-      id: "2",
+      id: "3",
       name: "현석로그 SNS",
       state: "2026.01~2026.03",
       gitCode: "https://github.com/hyunseok9898?tab=repositories",
@@ -38,7 +49,7 @@ export const seedProjects = async () => {
       text: `React.js + TypeScript + Supabase로 만든 SNS입니다. \n 로그인시 테스트 아이디 : 123@123.com \n 비밀번호 : 123456 `,
     },
     {
-      id: "3",
+      id: "4",
       name: "예비집사 판별기",
       state: "2025.11",
       gitCode: "https://github.com/hyunseok9898/mbtitest_ts",
@@ -56,7 +67,7 @@ export const seedProjects = async () => {
       text: "React와 TypeScript로 만들어진 mbti별 집사 판별 사이트입니다.\n  결과 페이지에서 공유하기 버튼을 눌러 카카오톡으로 공유할 수 있습니다.",
     },
     {
-      id: "4",
+      id: "5",
       name: "나의 포트폴리오",
       state: "2025.08~2025.10",
       gitCode: "https://github.com/hyunseok9898/my-portfolio",
@@ -73,7 +84,7 @@ export const seedProjects = async () => {
       text: "React로 만들어진 포트폴리오 사이트입니다.",
     },
     {
-      id: "5",
+      id: "6",
       name: "현석링크",
       state: "2026.02",
       gitCode: "https://github.com/hyunseok9898/onebite-link",
@@ -84,7 +95,7 @@ export const seedProjects = async () => {
       text: "Next와 TypeScript로 만들어진 링크 저장소입니다. \n 로그인시 테스트 아이디 : test@email.com \n 비밀번호 : 123456",
     },
     {
-      id: "6",
+      id: "7",
       name: "todolist",
       state: "2025.02",
       gitCode: "https://github.com/hyunseok9898/todolist",
@@ -95,7 +106,7 @@ export const seedProjects = async () => {
       text: "React와 TypeScript로 만들어진 todolist입니다.",
     },
     {
-      id: "7",
+      id: "8",
       name: "폭스바겐_리뉴얼",
       state: "2023.06~2023.08",
       gitCode: "https://github.com/hyunseok9898/VolksWagen_Renewal",
@@ -106,7 +117,7 @@ export const seedProjects = async () => {
       text: "폭스바겐코리아 웹사이트 리뉴얼 팀 프로젝트입니다. 카카오api를 사용하여 지도에 서비스센터 찾기가 가능합니다. 서브페이지는 전기차 충전, 서비스센터 찾기 2개 있습니다. 이 웹은 반응형입니다. ",
     },
     {
-      id: "8",
+      id: "9",
       name: "내일투어_리뉴얼",
       state: "2023.04",
       gitCode: "https://github.com/hyunseok9898/naeiltour-renewal",

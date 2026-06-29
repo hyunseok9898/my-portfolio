@@ -29,15 +29,15 @@ const Wrapper = styled.nav`
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.05em;
-    color: ${(props) => props.theme.accent};
-    transition: opacity 0.3s ease;
+    color: #000000;
+    transition: color 0.3s ease;
 
     &:hover {
-      opacity: 0.75;
+      color: #888888;
     }
 
     span {
-      color: ${(props) => props.theme.accent};
+      color: #000000;
     }
   }
 
